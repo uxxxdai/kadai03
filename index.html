@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="JN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jyanken Program</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="wrapper">
+     <!-- ハンバーガーメニュー-->   
+    <div id="navArea">
+    <nav>
+      <div class="inner">
+        <!-- button キャラを替えて再開ボタン-->
+        <p class="select_message">じぶんのキャラクターを選んでスタートボタンを押してね!</p>
+        <div class="select_wrapper">
+            <div class = "select_chara">
+                <select name="select_character" class="pulldown">
+                    <option value="0">ピカチュウ</option>
+                    <option value="1">ロコン（アローラ）</option>
+                    <option value="2">イーブイ</option>
+                    <option value="3">ポニータ（ガラル）</option>
+                    <option value="4">コリンク</option>
+                </select>
+            </div>
+            <button class="btn2" type="button">スタート</button>
+        </div>
+        <p class="select_message">３匹たおしたらでんせつのポケモンとバトルできるよ！</p>
+        <div class="hako_wrapper"> 
+            <div class="hako chara_a">
+                <img src="images/Pikachu.png" alt="味方キャラ">
+            </div>
+            <p class="select_message">VS</p>
+            <div class="hako chara_b">
+                <img src="images/alora-rokon.png" alt="相手キャラ">
+            </div>
+        </div>
+        <div class="hako_wrapper"> 
+            <div class="hako chara_a2">
+                <img src="images/white box.jpeg" alt="味方キャラ">
+            </div>
+            <p class="select_message">VS</p>
+            <div class="hako chara_b2">
+                <img src="images/i-vy.png" alt="相手キャラ">
+            </div>
+        </div>
+        <div class="hako_wrapper"> 
+            <div class="hako chara_a3">
+                <img src="images/white box.jpeg" alt="味方キャラ">
+            </div>
+            <p class="select_message">VS</p>
+            <div class="hako chara_b3">
+                <img src="images/garaluponi-ta.png" alt="相手キャラ">
+            </div>
+        </div>
+        <p class="select_message">でんせつのポケモンにチャレンジ！！！</p>
+        <div class="hako_wrapper"> 
+            <div class="hako chara_a_last">
+                <img src="images/white box.jpeg" alt="味方キャラ">
+            </div>
+            <p class="select_message">VS</p>
+            <div class="hako chara_last">
+                <img src="images/hatena.jpg" alt="相手キャラ">
+            </div>
+        </div>
+      </div>
+    </nav>
+  
+    <div class="toggle_btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div id="mask"></div>
+  </div>
+  
+    <!-- header タイトル表示-->
+    <h1>ポケモンジャンケンバトル！</h1>
+    <div class="onamae">
+        <p>あなたのおなまえ：</p>
+        <input type="text" id="key">
+        <button id="save">登録</button>
+        <!-- <textarea id="memo"></textarea> -->
+        <!-- <ul>
+          <li id="save">Save</li>
+          <li id="clear">Clear</li> -->
+        <!-- </ul>  -->
+        
+    </div>
+    <p class="onamae">（登録して遊ぶとごうけいのかくとくポイントが<a href="#seiseki">成績表</a>にきろくとしてのこるよ！）</p>
+    <p class="tensuu">1匹目を倒すと1点、2匹目を倒すと2点、3匹目を倒すと3点、伝説のポケモンを倒すと4点のポイントゲットだぜ</p>
+
+    <!-- message_box メッセージボックス-->
+    <div class="message_box">
+        <p class="message_contents">
+            グー、チョキ、パーのどれかをえらんでね。かった方がこうげき！<br>
+            （※こうげきりょくはグー：20、チョキ：30、パー：40で、<br>
+            あたえるダメージはヒットのつよさによってかわるよ。）<br><br>
+            じぶんのキャラクターをかえたければ左上のハンバーガーメニューをおしてね！
+        </p>
+    </div>
+    <!-- Name and HP 名前とヒットポイント表示-->
+    <div class="wrapper">
+        <Div class="name_hp chara_a">
+            <div class="name_box">
+                <p class="name_base chara_a">あなた：</p>
+                <p class="name chara_a">ピカチュウ</p>
+            </div>
+            <p class="hp">H/P</p>
+            <div class="hp_gage chara_a">
+                <Div class="hp_max chara_a"></Div>
+                <Div class="hp_now chara_a">100/100</Div>
+            </div>
+        </Div>
+        <Div class="name_hp chara_b">
+            <div class="name_box">
+                <p class="name_base">あいて：</p>
+                <p class="name chara_b">ロコン（アローラ）</p>
+            </div>
+        <p class="hp">H/P</p>
+            <div class="hp_gage chara_b">
+                <Div class="hp_max chara_b"></Div>
+                <Div class="hp_now chara_b">100/100</Div>
+            </div>
+        </Div>
+    </div>
+    <!-- battle field 戦場-->
+    <div class="wrapper">
+        <div class="battle_character chara_a" id="charaid_a">
+            <img src="images/Pikachu.png" alt="味方キャラ">
+        </div>
+        <div class="battle_hand chara_a">
+            <img src="images/gu-300x300.png" alt="味方の手">
+        </div>
+        <p class="VS">VS</p>
+        <div class="battle_hand chara_b">
+            <img src="images/choki-300x300.png" alt="相手の手">
+        </div>
+        <div class="battle_character chara_b" id="charaid_a">
+            <img src="images/alora-rokon.png" alt="相手キャラ">
+        </div>       
+    </div>
+
+    <!-- select options ぐーちょきぱーの選択肢-->
+    <div class="wrapper option">
+        <button type="button" class="option_box" value="0">
+            <img src="images/gu-300x300.png" alt="グー">
+            <p class="option_hand">グー</p>
+        <button type="button" class="option_box" value="1">
+            <img src="images/choki-300x300.png" alt="チョキ">
+            <p class="option_hand">チョキ</p>
+        </button>
+        <button type="button" class="option_box" value="2">
+            <img src="images/pa-300x300.png" alt="パー">
+            <p class="option_hand">パー</p>
+        </button>
+
+        <div class = "button_wrap">
+        <!-- button 最初に戻る/キャラ替えボタン-->
+            <input class="btn again" type="button" value="同じあいてともう一回">
+            <!-- <input class="btn next" type="button" value="次のあいてにすすむ"> -->
+            <input class="btn reset" type="button" value="さいしょにもどる">
+        </div>
+        
+    </div>
+<!--/wrapper--></div>
+
+<footer class="shikiri text-center">
+    <small class="copyrights"></small>
+</footer>
+
+<div class="seiseki" id="seiseki">成績表（これまでにかくとくしたポイントごうけい）</div>
+<table id="list" class="tablesorter">
+    <thead>
+        <tr>
+        <th>おなまえ</th>
+        <th>ごうけいてん</th>
+        </tr>
+    </thead>
+</table>
+<button class="clear" id="clear">削除</button>
+
+    <!-- Jqueryを使えるようにする -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
+    <script src="js/particles.js-master/particles.js-master/particles.min.js"></script>
+    <script src="js/janken2.js"></script>
+</body>
+
+  <!-- #footer/-->
+  <footer id="footer" class="footer text-center">
+    <small class="copyrights">copyrights2022 ポケジャン製作委員会 All Rights Reserved.</small>
+</footer>
+  <!-- /#footer -->
+</html>
